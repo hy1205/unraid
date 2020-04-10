@@ -1,93 +1,112 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Containers>
-  <TemplateURL>https://github.com/hy1205/unraid/blob/master/qbittorrent.xml</TemplateURL>
-  <Beta>False</Beta>
-  <Category>Downloaders:</Category>
-  <Name>binhex-qbittorrent</Name>
-  <Description>
-    [b][u][span style='color: #E80000;']Description[/span][/u][/b][br]
-    qBittorrent is a bittorrent client programmed in C++ / Qt that uses libtorrent (sometimes called libtorrent-rasterbar) by Arvid Norberg. It aims to be a good alternative to all other bittorrent clients out there. qBittorrent is fast, stable and provides unicode support as well as many features. This Docker image is using the headless configuration with the web frontend enabled, as well as OpenVPN to ensure a secure and private connection to the Internet, including use of iptables to prevent IP leakage when the tunnel is down. Privoxy is also included to allow unfiltered access to index sites, to use Privoxy please point your application at http://host ip:8118.[br]
-    This Docker includes OpenVPN to ensure a secure and private connection to the Internet, including use of iptables to prevent IP leakage when the tunnel is down. It also includes Privoxy to allow unfiltered access to index sites, to use Privoxy please point your application at "host ip:8118"[br][br]
-    [b][u][span style='color: #E80000;']Configuration[/span][/u][/b][br]
-    [b]/config[/b] This is where qBittorrent will store it's configuration file, database and logs.[br]
-    [b]/data[/b] This is where qBittorrent will store data downloaded, watched folder, and archived torrents.[br][br]
-    [b][u][span style='color: #E80000;']Documentation[/span][/u][/b][br]
-    https://github.com/binhex/documentation[br][br]
-  </Description>
-  <Overview>
-    qBittorrent is a bittorrent client programmed in C++ / Qt that uses libtorrent (sometimes called libtorrent-rasterbar) by Arvid Norberg. It aims to be a good alternative to all other bittorrent clients out there. qBittorrent is fast, stable and provides unicode support as well as many features. This Docker image is using the headless configuration with the web frontend enabled, as well as OpenVPN to ensure a secure and private connection to the Internet, including use of iptables to prevent IP leakage when the tunnel is down. Privoxy is also included to allow unfiltered access to index sites, to use Privoxy please point your application at "http://host ip:8118".
-  </Overview>
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>qbittorrent</Name>
+  <Repository>80x86/qbittorrent</Repository>
   <Registry>https://hub.docker.com/r/80x86/qbittorrent/</Registry>
-  <Repository>80x86/qbittorrent:4.2.2-bullseye-amd64-nova</Repository>
-  <Project>https://hub.docker.com/r/80x86/qbittorrent/</Project>
-  <BindTime>true</BindTime>
+  <Network>host</Network>
+  <MyIP></MyIP>
   <Privileged>true</Privileged>
+  <Support>https://github.com/hy1205/unraid/</Support>
+  <Project/>
+  <Overview>Docker container which runs the latest headless qBittorrent client with WebUI wth optional OpenVPN connection including iptables killswitch to prevent IP leakage when tunnel does down. This is an automated build linked with Ubuntu. &#xD;
+&#xD;
+NOTE: Dont use WebUI from the unRAID menu, it throws a header redirect error in qBittorrent. Instead type the IP:PORT directly into a browser address bar.&#xD;
+&#xD;
+NOTE2: If you want to change the ports, change the environmental variables as well as the exposed ports for the container instead of forwarding a host port to 8080 inside the container. qBittorrent will throw a DNS rebinding error.</Overview>
+  <Category>Downloaders:</Category>
+  <WebUI>http://[IP]:[PORT:8082]/</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/MarkusMcNugen/docker-templates/master/qbittorrentvpn/qbittorrentvpn-template.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/MarkusMcNugen/docker-templates/master/qbittorrentvpn/qbittorrentvpn-icon.png</Icon>
+  <ExtraParams></ExtraParams>
+  <PostArgs/>
+  <DateInstalled></DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <DonateImg/>
+  <MinVer>6.0</MinVer>
+  <Description>Docker container which runs the latest headless qBittorrent client with WebUI wth optional OpenVPN connection including iptables killswitch to prevent IP leakage when tunnel does down. This is an automated build linked with Ubuntu. &#xD;
+&#xD;
+NOTE: Dont use WebUI from the unRAID menu, it throws a header redirect error in qBittorrent. Instead type the IP:PORT directly into a browser address bar.&#xD;
+&#xD;
+NOTE2: If you want to change the ports, change the environmental variables as well as the exposed ports for the container instead of forwarding a host port to 8080 inside the container. qBittorrent will throw a DNS rebinding error.</Description>
   <Networking>
-    <Mode>host</Mode>
+    <Mode>br0</Mode>
     <Publish>
       <Port>
-        <HostPort>8082</HostPort>
-        <ContainerPort>8082</ContainerPort>
+        <HostPort>8080</HostPort>
+        <ContainerPort>8080</ContainerPort>
         <Protocol>tcp</Protocol>
       </Port>
       <Port>
-        <HostPort>8082</HostPort>
-        <ContainerPort>8082</ContainerPort>
+        <HostPort>8999</HostPort>
+        <ContainerPort>8999</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>8999</HostPort>
+        <ContainerPort>8999</ContainerPort>
         <Protocol>udp</Protocol>
       </Port>
-      <Port>
-        <HostPort>8082</HostPort>
-        <ContainerPort>8082</ContainerPort>
-        <Protocol>tcp</Protocol>
-      </Port>
-      <Port>
-        <HostPort>8082</HostPort>
-        <ContainerPort>8118</ContainerPort>
-        <Protocol>tcp</Protocol>
-      </Port>
     </Publish>
-    <Variable>
-      <Name>STRICT_PORT_FORWARD</Name>
-      <Value>yes</Value>
-    </Variable>
-    <Variable>
-      <Name>ENABLE_PRIVOXY</Name>
-      <Value>no</Value>
-    </Variable>
-    <Variable>
-      <Name>WEBUI_PORT</Name>
-      <Value>8082</Value>
-    </Variable>
-    <Variable>
-      <Name>DEBUG</Name>
-      <Value>false</Value>
-    </Variable>
-    <Variable>
-      <Name>UMASK</Name>
-      <Value>000</Value>
-    </Variable>
-    <Variable>
-      <Name>PUID</Name>
-      <Value>99</Value>
-    </Variable>
-    <Variable>
-      <Name>PGID</Name>
-      <Value>100</Value>
-    </Variable>
-  </Environment>
+  </Networking>
   <Data>
     <Volume>
-      <HostDir>/mnt/cache/appdata/config</HostDir>
-      <ContainerDir>/config</ContainerDir>
+      <HostDir>/mnt/user/Downloads/</HostDir>
+      <ContainerDir>/downloads</ContainerDir>
       <Mode>rw</Mode>
     </Volume>
     <Volume>
-      <HostDir>/mnt/user/appdata/data</HostDir>
+      <HostDir>/mnt/user/appdata/qbittorrent/config/</HostDir>
+      <ContainerDir>/config</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+     <Volume>
+      <HostDir>/mnt/user/appdata/qbittorrent/data/</HostDir>
       <ContainerDir>/data</ContainerDir>
       <Mode>rw</Mode>
     </Volume>
   </Data>
-  <WebUI>http://[IP]:[PORT:8080]/</WebUI>
-  <Icon>https://github.com/hy1205/unraid/blob/master/qbittorrent.png?raw=true</Icon>
-  <ExtraParams></ExtraParams>
-</Containers>
+  <Environment>
+    <name>
+      <default value>1000</default value>
+      <Name>PUID</Name>
+      <Mode/>
+    </Variable>
+	<Variable>
+       <default value>100</default value>
+      <Name>PGID</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <default value>000</default value>
+      <Name>UMASK_SET</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <default value>8080</default value>
+      <Name>WEB_PORT</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <default value>8999</default value>
+      <Name>BT_PORT</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <default value>127.0.0.1</default value>
+      <Name>FB_AUTH_SERVER_ADDR</Name>
+      <Mode/>
+    </Variable>
+  </Environment>
+  <Config Name="WEBUI_PORT" Target="8080" Default="8080" Mode="tcp" Description="Container Port: 8080" Type="Port" Display="always" Required="true" Mask="false">8080</Config>
+  <Config Name="INCOMING_PORT_TCP" Target="8999" Default="8999" Mode="tcp" Description="Container Port: 8999" Type="Port" Display="always" Required="true" Mask="false">8999</Config>
+  <Config Name="INCOMING_PORT_UDP" Target="8999" Default="8999" Mode="udp" Description="Container Port: 8999" Type="Port" Display="always" Required="true" Mask="false">8999</Config>
+  <Config Name="INCOMING_PORT_ENV" Target="INCOMING_PORT" Default="8999" Mode="" Description="Container Variable: INCOMING_PORT - Sets incoming connections port in qBittorrent config. You must change the exposed Incoming Ports to the same value if you change this." Type="Variable" Display="always" Required="false" Mask="false">8999</Config>
+  <Config Name="Downloads Path" Target="/downloads" Default="" Mode="rw" Description="Container Path: /downloads" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/Downloads/</Config>
+  <Config Name="BT_PORT" Target="8999" Default="8999" Mode="tcp" Description="Container Port: 8999" Type="Port" Display="always" Required="true" Mask="false">8999</Config>
+  <Config Name="FB_AUTH_SERVER_ADDR" Target="FB_AUTH_SERVER_ADDR" Default="127.0.0.1" Mode="" Description="Container Variable: FB_AUTH_SERVER_ADDR" Type="Variable" Display="always" Required="true" Mask="false">127.0.0.1</Config>
+  <Config Name="PUID" Target="PUID" Default="1000" Mode="" Description="Container Variable: PUID" Type="Variable" Display="always" Required="false" Mask="false">1000</Config>
+  <Config Name="PGID" Target="PGID" Default="100" Mode="" Description="Container Variable: PGID" Type="Variable" Display="always" Required="false" Mask="false">100</Config>
+  <Config Name="UMASK_SET" Target="UMASK_SET" Default="000" Mode="" Description="Container Variable: UMASK_SET" Type="Variable" Display="always" Required="false" Mask="false">000</Config>
+  <Config Name="config" Target="/config" Default="/mnt/user/appdata/qbittorrent" Mode="rw" Description="Container Path: /config" Type="Path" Display="advanced" Required="true" Mask="false">/mnt/user/appdata/qbittorrent/</Config>
+</Container>
