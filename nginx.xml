@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<Container>
+  <Name>nginx</Name>
+  <Repository>80x86/nginx-fancyindex:amd64</Repository>
+  <Registry>https://hub.docker.com/r/80x86/nginx-fancyindex</Registry>
+  <Network>bige</Network>
+  <Privileged>false</Privileged>
+  <Project>https://hub.docker.com/r/80x86/nginx-fancyindex</Project>
+  <Overview>nginx</Overview>
+  <Description>
+    使用荒野无灯大神的镜像，具体使用教程可访问https://www.lxg2016.com/54202.html查看
+  </Description>
+  <Category>Cloud: Network:Web Status:Stable</Category>
+  <WebUI>https://[IP]:[PORT:8084]</WebUI>
+  <Icon>https://github.com/hy1205/unraid/blob/master/nginx.png?raw=true</Icon>
+  <ExtraParams>--mount type=tmpfs,destination=/tmp</ExtraParams>
+  <PostArgs></PostArgs>
+  <CPUset/>
+  <DateInstalled></DateInstalled>
+  <DonateText/>
+  <DonateLink/>s
+  <Description></Description>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user</HostDir>
+      <ContainerDir>/app/public</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <Environment>
+    <Variable>
+      <Value>off</Value>
+      <Name>HTTP_AUTH</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>8084</Value>
+      <Name>WEB_PORT</Name>
+      <Mode/>
+    </Variable>
+  </Environment>
+</Container>
