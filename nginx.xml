@@ -33,10 +33,20 @@
       <Name>HTTP_AUTH</Name>
       <Mode/>
     </Variable>
-    <Variable>
-      <Value>8084</Value>
-      <Name>WEB_PORT</Name>
-      <Mode/>
-    </Variable>
-  </Environment>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish>
+      <Port>
+        <HostPort>445</HostPort>
+        <ContainerPort>80</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>444</HostPort>
+        <ContainerPort>443</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  </Environment>  
 </Container>
