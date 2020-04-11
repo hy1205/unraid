@@ -8,10 +8,10 @@
   <Project>https://hub.docker.com/r/80x86/nginx-fancyindex</Project>
   <Overview>nginx</Overview>
   <Description>
-    使用荒野无灯大神的镜像，具体使用教程可访问https://www.lxg2016.com/54202.html查看
+    使用荒野无灯大神的镜像，具体使用教程可访问https://hub.docker.com/u/80x86查看
   </Description>
   <Category>Cloud: Network:Web Status:Stable</Category>
-  <WebUI>https://[IP]:[PORT:8084]</WebUI>
+  <WebUI>http://[IP]:[PORT:8084]</WebUI>
   <Icon>https://github.com/hy1205/unraid/blob/master/nginx.png?raw=true</Icon>
   <ExtraParams>--mount type=tmpfs,destination=/tmp</ExtraParams>
   <PostArgs></PostArgs>
