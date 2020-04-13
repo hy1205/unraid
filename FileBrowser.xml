@@ -12,7 +12,7 @@
   </Description>
   <Category>Cloud: Network:Web Status:Stable</Category>
   <WebUI>https://[IP]:[PORT:8082]</WebUI>
-  <Icon>https://github.com/hy1205/unraid/blob/master/qbittorrent.png?raw=true</Icon>
+  <Icon>https://github.com/hy1205/unraid/blob/master/filebrowser.png?raw=true</Icon>
   <ExtraParams>--mount type=tmpfs,destination=/tmp</ExtraParams>
   <PostArgs></PostArgs>
   <CPUset/>
