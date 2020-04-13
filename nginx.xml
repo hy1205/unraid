@@ -3,7 +3,7 @@
   <Name>nginx</Name>
   <Repository>80x86/nginx-fancyindex:amd64</Repository>
   <Registry>https://hub.docker.com/r/80x86/nginx-fancyindex</Registry>
-  <Network>bige</Network>
+  <Network>host</Network>
   <Privileged>false</Privileged>
   <Project>https://hub.docker.com/r/80x86/nginx-fancyindex</Project>
   <Overview>nginx</Overview>
@@ -33,20 +33,13 @@
       <Name>HTTP_AUTH</Name>
       <Mode/>
     </Variable>
-  <Networking>
-    <Mode>bridge</Mode>
-    <Publish>
-      <Port>
-        <HostPort>445</HostPort>
-        <ContainerPort>80</ContainerPort>
-        <Protocol>tcp</Protocol>
-      </Port>
-      <Port>
-        <HostPort>444</HostPort>
-        <ContainerPort>443</ContainerPort>
-        <Protocol>tcp</Protocol>
-      </Port>
-    </Publish>
-  </Networking>
+    <Variable>
+      <Value>8083</Value>
+      <Name>http</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>8084</Value>
+      <Name>https</Name>
   </Environment>  
 </Container>
