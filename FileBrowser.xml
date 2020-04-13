@@ -8,10 +8,10 @@
   <Project>https://hub.docker.com/r/80x86/filebrowser</Project>
   <Overview>filebrowser</Overview>
   <Description>
-    使用荒野无灯大神的镜像，具体使用教程可访问https://www.lxg2016.com/54202.html查看
+    使用荒野无灯大神的镜像，具体使用教程可访问https://hub.docker.com/u/80x86查看
   </Description>
   <Category>Cloud: Network:Web Status:Stable</Category>
-  <WebUI>http://[IP]:[PORT:8083]</WebUI>
+  <WebUI>https://[IP]:[PORT:8082]</WebUI>
   <Icon>https://github.com/hy1205/unraid/blob/master/qbittorrent.png?raw=true</Icon>
   <ExtraParams>--mount type=tmpfs,destination=/tmp</ExtraParams>
   <PostArgs></PostArgs>
@@ -22,12 +22,12 @@
   <Description></Description>
   <Data>
     <Volume>
-      <HostDir>/mnt/user/appdata/filebrowser</HostDir>
+      <HostDir>/mnt/user/appdata/filebrowser/config</HostDir>
       <ContainerDir>/config</ContainerDir>
       <Mode>rw</Mode>
     </Volume>
     <Volume>
-      <HostDir>想管理的路径</HostDir>
+      <HostDir>/mnt</HostDir>
       <ContainerDir>/myfiles</ContainerDir>
       <Mode>rw</Mode>
     </Volume>
@@ -44,7 +44,7 @@
       <Mode/>
     </Variable>
     <Variable>
-      <Value>on或off</Value>
+      <Value>on</Value>
       <Name>SSL</Name>
       <Mode/>
     </Variable>
@@ -54,7 +54,7 @@
       <Mode/>
     </Variable>
     <Variable>
-      <Value>8083</Value>
+      <Value>8082</Value>
       <Name>WEB_PORT</Name>
       <Mode/>
     </Variable>
