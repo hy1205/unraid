@@ -12,7 +12,7 @@
            https://hub.docker.com/r/henkallsn/tinymediamanager3_nightly
   </Description>
   <Category>Cloud: Network:Web Status:Stable</Category>
-  <WebUI>http://[IP]:[PORT:5888]</WebUI>
+  <WebUI>http://[IP]:[PORT:5800]</WebUI>
   <Icon>https://github.com/hy1205/unraid/blob/master/tmm.png?raw=true</Icon>
   <ExtraParams></ExtraParams>
   <PostArgs></PostArgs>
@@ -52,12 +52,12 @@
   </Networking>
   <Environment>
     <Variable>
-      <Value>0</Value>
+      <Value>1000</Value>
       <Name>GROUP_ID</Name>
       <Mode/>
     </Variable>
     <Variable>
-      <Value>0</Value>
+      <Value></Value>
       <Name>USER_ID</Name>
       <Mode/>
     </Variable>
