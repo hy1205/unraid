@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <Container version="2">
   <Name>qbittorrent</Name>
-  <Repository>80x86/qbittorrent:4.1.9-amd64-nova</Repository>
+  <Repository>80x86/qbittorrent:4.2.3-focal-20200319-amd64</Repository>
   <Registry>https://hub.docker.com/r/80x86/qbittorrent/</Registry>
   <Network>host</Network>
   <MyIP></MyIP>
