@@ -41,5 +41,7 @@
     <Variable>
       <Value>8084</Value>
       <Name>https</Name>
+      <Mode/>
+     <Variable>
   </Environment>  
 </Container>
