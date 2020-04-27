@@ -20,6 +20,10 @@
   <DonateText/>
   <DonateLink/>
   <Description></Description>
+    <Networking>
+    <Mode>host</Mode>
+    <Publish/>
+  </Networking>
   <Data>
     <Volume>
       <HostDir>/mnt/user</HostDir>
@@ -34,14 +38,19 @@
       <Mode/>
     </Variable>
     <Variable>
-      <Value>8083</Value>
-      <Name>http</Name>
+      <Value>admin</Value>
+      <Name>HTTP_USERNAME</Name>
       <Mode/>
     </Variable>
     <Variable>
-      <Value>8084</Value>
-      <Name>https</Name>
+      <Value>admin</Value>
+      <Name>HTTP_PASSWD</Name>
       <Mode/>
+     </Variable>
      <Variable>
+      <Value>8084</Value>
+      <Name>http</Name>
+      <Mode/>
+    </Variable>
   </Environment>  
 </Container>
