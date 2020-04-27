@@ -47,7 +47,12 @@
       <Name>HTTP_PASSWD</Name>
       <Mode/>
      </Variable>
-     <Variable>
+        <Variable>
+      <Value>8085</Value>
+      <Name>https</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
       <Value>8084</Value>
       <Name>http</Name>
       <Mode/>
