@@ -10,7 +10,7 @@
   <Project/>
   <Overview>详细教程请到灯大镜像https://hub.docker.com/r/80x86/qbittorrent查看</Overview>
   <Category>Downloaders:</Category>
-  <WebUI>http://[IP]:[PORT:8080]/</WebUI>
+  <WebUI>http://[IP]:[PORT:8083]/</WebUI>
   <TemplateURL>https://github.com/hy1205/unraid/blob/master/qbittorrent.xml</TemplateURL>
   <Icon>https://github.com/hy1205/unraid/blob/master/qbittorrent.png?raw=true</Icon>
   <ExtraParams>--mount type=tmpfs,destination=/tmp</ExtraParams>
@@ -62,7 +62,7 @@ NOTE2: If you want to change the ports, change the environmental variables as we
       <Mode/>
     </Variable>
     <Variable>
-      <Value>8080</Value>
+      <Value>8083</Value>
       <Name>WEB_PORT</Name>
       <Mode/>
     </Variable>
@@ -77,7 +77,7 @@ NOTE2: If you want to change the ports, change the environmental variables as we
       <Mode/>
     </Variable>
   </Environment>
-  <Config Name="WEBUI_PORT" Target="8080" Default="8080" Mode="tcp" Description="Container Port: 8080" Type="Port" Display="always" Required="true" Mask="false">8080</Config>
+  <Config Name="WEBUI_PORT" Target="8083" Default="8083" Mode="tcp" Description="Container Port: 8083" Type="Port" Display="always" Required="true" Mask="false">8083</Config>
   <Config Name="BT_PORT_TCP" Target="8999" Default="8999" Mode="tcp" Description="Container Port: 8999" Type="Port" Display="always" Required="true" Mask="false">8999</Config>
   <Config Name="BT_PORT_UDP" Target="8999" Default="8999" Mode="udp" Description="Container Port: 8999" Type="Port" Display="always" Required="true" Mask="false">8999</Config>
   <Config Name="downloads" Target="/downloads" Default="" Mode="rw" Description="Container Path: /downloads" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/Downloads/</Config>
