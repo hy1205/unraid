@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <Container version="2">
   <Name>qbittorrent</Name>
-  <Repository>80x86/qbittorrent:4.2.3-focal-20200319-amd64</Repository>
+  <Repository>80x86/qbittorrent:4.2.5-alpine-3.11-amd64-nova</Repository>
   <Registry>https://hub.docker.com/r/80x86/qbittorrent/</Registry>
   <Network>host</Network>
   <MyIP></MyIP>
@@ -86,4 +86,5 @@ NOTE2: If you want to change the ports, change the environmental variables as we
   <Config Name="PGID" Target="PGID" Default="100" Mode="" Description="Container Variable: PGID" Type="Variable" Display="always" Required="false" Mask="false">100</Config>
   <Config Name="UMASK" Target="UMASK" Default="000" Mode="" Description="Container Variable: UMASK" Type="Variable" Display="always" Required="false" Mask="false">000</Config>
   <Config Name="config" Target="/config" Default="/mnt/user/appdata/qbittorrent/config" Mode="rw" Description="Container Path: /config" Type="Path" Display="advanced" Required="true" Mask="false">/mnt/user/appdata/qbittorrent/config/</Config>
+  <Config Name="data" Target="/data" Default="/mnt/user/appdata/qbittorrent/data" Mode="rw" Description="Container Path: /data" Type="Path" Display="advanced" Required="true" Mask="false">/mnt/user/appdata/qbittorrent/data/</Config>
 </Container>
