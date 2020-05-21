@@ -77,7 +77,7 @@ NOTE2: If you want to change the ports, change the environmental variables as we
       <Mode/>
     </Variable>
   </Environment>
-  <Config Name="WEBUI_PORT" Target="8083" Default="8083" Mode="tcp" Description="Container Port: 8083" Type="Port" Display="always" Required="true" Mask="false">8083</Config>
+  <Config Name="WEB_PORT" Target="8083" Default="8083" Mode="tcp" Description="Container Port: 8083" Type="Port" Display="always" Required="true" Mask="false">8083</Config>
   <Config Name="BT_PORT_TCP" Target="8999" Default="8999" Mode="tcp" Description="Container Port: 8999" Type="Port" Display="always" Required="true" Mask="false">8999</Config>
   <Config Name="BT_PORT_UDP" Target="8999" Default="8999" Mode="udp" Description="Container Port: 8999" Type="Port" Display="always" Required="true" Mask="false">8999</Config>
   <Config Name="downloads" Target="/downloads" Default="" Mode="rw" Description="Container Path: /downloads" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/Downloads/</Config>
